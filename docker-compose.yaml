@@ -1,0 +1,21 @@
+services:
+  # PostgreSQL database service
+  pgdatabase:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: ahona
+      POSTGRES_DB: ny_taxi 
+      POSTGRES_USER: ahona
+    ports:
+      - "5432:5432"
+    volumes:
+      - "/workspaces/AHONA-DATAENGINEERING/postgres_data:/var/lib/postgresql/data"
+  # pgAdmin web interface
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: ahona
+    ports:
+      - "8080:80"
+    
